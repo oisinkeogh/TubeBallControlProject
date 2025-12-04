@@ -14,7 +14,7 @@ const int statusPins[8] = {6,7,8,14,15,16,17,18}; // Bits 0-7
 const int speedBitPins[4] = {10,11,12,13}; // LSB → MSB
 
 // Optional outputs back to PLC (fan speed feedback)
-const int outBitPins[4] = {A0,A1,A2,A3}; // LSB → MSB
+//const int outBitPins[4] = {A0,A1,A2,A3}; // LSB → MSB
 
 bool systemOK = true;
 unsigned long lastGoodRead = 0;
@@ -56,11 +56,11 @@ int readPLCSpeed(){
   return value; // 0-15
 }
 
-void sendSpeedToPLC(int speedLevel){
+/*void sendSpeedToPLC(int speedLevel){
   for(int i=0;i<4;i++){
     digitalWrite(outBitPins[i], (speedLevel>>i)&1);
   }
-}
+}*/
 
 void sendStatusByte(bool ballDetected, bool setpointDetected, bool heartbeat){
   byte status=0;
